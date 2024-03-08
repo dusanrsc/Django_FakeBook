@@ -9,9 +9,10 @@
         <title>Fakebook</title>
     </head>
     <body>
-        <div class="container" align="center">
+        <div class="container" align="center"><br/>
             <a href="{% url 'logout_user' %}">Logout here.</a><br/><br/>
-            {{ user }} | {{ user.first_name }} {{ user.last_name }} | {{ user.email }}
+            <h1>Welcome {{ user.first_name }} {{ user.last_name }}!</h1>
+            ID: {{ user.id }} | Username: {{ user }} | Name: {{ user.first_name }} {{ user.last_name }} | Email: {{ user.email }}
         </div>
     </body>
 </html>

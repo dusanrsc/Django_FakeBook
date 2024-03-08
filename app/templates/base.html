@@ -3,23 +3,23 @@
 <!-- endlink -->
 
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg bg-light">
-  <a class="navbar-brand" href="{% url 'index' %}"><strong style="color:#FFFFFF; background-color:rgb(8, 102, 255);">&nbsp;&nbsp;F&nbsp;&nbsp;</strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-light bg-light">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#!"></a>
-      </li>
-    </ul>
-  </div>
+  <!-- fakebook logo -->
+  <a href="{% url 'index' %}" class="btn btn-primary" type="submit">F</a>
+
+  <!-- search bar form -->
+  <form class="form-inline" method="POST" action="{% url 'search_user' %}" autocomplete="off">
+    {% csrf_token %}
+
+    <!-- input field -->
+    <input class="form-control mr-sm-0" type="search" name="search" placeholder="Search Fakebook" aria-label="Search">
+    
+  </form>
 </nav>
+<!-- endnavbar -->
 
 <body style="background-color: #F0F0F0;">
-<!-- endnavbar -->
 
 {% block content %}
 {% endblock %}
