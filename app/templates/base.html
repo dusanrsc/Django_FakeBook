@@ -1,25 +1,64 @@
-<!-- load css/bootstrap link -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<!-- endlink -->
+{% load static %}
 
-<!-- navbar -->
-<nav class="navbar navbar-light bg-light">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- fakebook logo -->
-  <a href="{% url 'index' %}" class="btn btn-primary" type="submit">F</a>
+    <!-- load css/bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- endlink -->
 
-  <!-- search bar form -->
-  <form class="form-inline" method="POST" action="{% url 'search_user' %}" autocomplete="off">
-    {% csrf_token %}
+    <!-- load font awesome link -->
+    <link rel="stylesheet" href="{% static 'app\font-awesome-4.7.0\css\font-awesome.min.css' %}">
+    <!-- endlink -->
+  </head>
+  <body>
 
-    <!-- input field -->
-    <input class="form-control mr-sm-0" type="search" name="search" placeholder="Search Fakebook" aria-label="Search">
-    
-  </form>
-</nav>
-<!-- endnavbar -->
+  <!-- navbar -->
+  <nav class="navbar navbar-light bg-light">
 
-<body style="background-color: #F0F0F0;">
+    <!-- fakebook logo -->
+    <a href="{% url 'index' %}" style="font-size:30px;"><strong>fakebook</strong></a>
+
+    <!-- search bar form -->
+    <form class="form-inline" method="POST" action="{% url 'search_user' %}" autocomplete="off">
+      {% csrf_token %}
+
+      <!-- input field -->
+      <input class="form-control" name="search" placeholder="Search Fakebook">
+      <button class="btn btn-primary" type="submit"><a class="fa fa-search"></a></button>
+    </form>
+
+    <!-- navbar shortcuts -->
+    <a href="{% url 'index' %}"><i class="fa fa-home" style="font-size:25px"></i></a>
+    <a href="{% url 'friends' %}"><i class="fa fa-user" style="font-size:25px"></i></a>
+    <a href="{% url 'video' %}"><i class="fa fa-play-circle" style="font-size:25px"></i></a>
+    <a href="{% url 'market' %}"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a>
+    <a href="{% url 'groups' %}"><i class="fa fa-users" style="font-size:25px"></i></a>
+
+    <div class="dropdown">
+      <button class="btn btn-primary btn-XS dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.first_name }} {{ user.last_name }}</button>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item btn-sm" type="button"><a href="{% url 'profile' %}" style="color:#000000;"><i class="fa fa-user" style="font-size:20px;">&nbsp;&nbsp;Profile</i></a></button>
+
+        <button class="dropdown-item btn-sm" type="button"><a href="{% url 'messages' %}" style="color:#000000;"><i class="fa fa-envelope" style="font-size:18px">&nbsp;&nbsp;Messages</i></a></button>
+
+        <button class="dropdown-item btn-sm" type="button"><a href="{% url 'settings' %}" style="color:#000000;"><i class="fa fa-gear" style="font-size:20px;">&nbsp;&nbsp;Settings</i></a></button>
+
+        <button class="dropdown-item btn-sm" type="button"><a href="{% url 'logout_user' %}" style="color:#000000;"><i class="fa fa-sign-out" style="font-size:20px;">&nbsp;&nbsp;Log-out</i></a></button>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+  </nav>
+
+  <body style="background-color: #F0F0F0;">
+</html>
 
 {% block content %}
 {% endblock %}

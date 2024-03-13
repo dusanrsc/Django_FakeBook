@@ -14,15 +14,15 @@
                 {% if searched %}<br/>
                     {% for search in searched %}
                         <div>
-                            <h1>Search result: {{ search.first_name }} {{ search.last_name }}</h1>
+                            <h1>Search result: <a href="#!">{{ search.first_name }} {{ search.last_name }}</a></h1>
                             Username: {{ search }} | Name: {{ search.first_name }} {{ search.last_name }} | Email: {{ search.email }}
                         </div>
                     {% endfor %}
-                {% else %}
-                    <h3>No search results found</h3>
+                {% else %}<br/>
+                    <h3>No search for "{{ search }}" found.</h3>
                 {% endif %}
-            {% else %}
-                <h1>Please enter a search query</h1>
+            {% else %}<br/>
+                <h3>Please enter a search query!</h3>
             {% endif %}
         </div>
     </body>

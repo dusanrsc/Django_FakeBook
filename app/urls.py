@@ -17,11 +17,25 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path("", views.index, name="index"),
+
     path("register_user", views.register_user, name="register_user"),
     path("login_user", views.login_user, name="login_user"),
-    path("logout_user", views.logout_user, name="logout_user"),
+
     path("search_user", views.search_user, name="search_user"),
+    path("friends", views.friends, name="friends"),
+    path("video", views.video, name="video"),
+    path("market", views.market, name="market"),
+    path("groups", views.groups, name="groups"),
+
+    path("profile", views.profile, name="profile"),
+    path("messages", views.messages, name="messages"),
+    path("settings", views.settings, name="settings"),
+    path("logout_user", views.logout_user, name="logout_user"),
+
     path("comming_soon", views.comming_soon, name="comming_soon"),
 ]

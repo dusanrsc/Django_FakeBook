@@ -1,17 +1,39 @@
 from django.shortcuts import render, redirect
 from . forms import CreateUserForm, LoginForm
-
+# from . models import UserProfile, Post
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
-
 from django.db.models import Q
+from time import strftime
 
 # Create your views here.
+# index (home) or feed page
 @login_required(login_url="login_user")
 def index(request):
-	return render(request, 'index.html')
+	return render(request, "index.html", {"time": strftime("%H:%M")})
+
+def profile(request):
+	return render(request, "profile.html", {})
+
+def messages(request):
+	return render(request, "messages.html", {})
+
+def friends(request):
+	return render(request, "friends.html", {})
+
+def video(request):
+	return render(request, "video.html", {})
+
+def market(request):
+	return render(request, "market.html", {})
+
+def groups(request):
+	return render(request, "groups.html", {})
+
+def settings(request):
+	return render(request, "settings.html", {})
 
 def register_user(request):
 	form = CreateUserForm()
