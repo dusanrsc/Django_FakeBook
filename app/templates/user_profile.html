@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fakebook User Profile</title>
+    </head>
+    <body>
+        <div class="container" align="center"><br/>
+            <h3>Welcome To The User Profile Page!</h3>
+            {{ user.username }}
+        </div>
+    </body>
+</html>
+{% endblock %}

@@ -14,9 +14,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# importing modules and sub-modules here
 from django.urls import path
 from . import views
-
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -32,7 +32,8 @@ urlpatterns = [
     path("market", views.market, name="market"),
     path("groups", views.groups, name="groups"),
 
-    path("profile", views.profile, name="profile"),
+    path("my_profile", views.my_profile, name="my_profile"),
+    path("user_profile/<int:id>", views.user_profile, name="user_profile"),
     path("messages", views.messages, name="messages"),
     path("settings", views.settings, name="settings"),
     path("logout_user", views.logout_user, name="logout_user"),

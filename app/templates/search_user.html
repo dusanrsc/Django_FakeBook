@@ -14,7 +14,7 @@
                 {% if searched %}<br/>
                     {% for search in searched %}
                         <div>
-                            <h1>Search result: <a href="#!">{{ search.first_name }} {{ search.last_name }}</a></h1>
+                            <h1>Search result: <a href="{% url 'user_profile' user.id %}">{{ search.first_name }} {{ search.last_name }}</a></h1>
                             Username: {{ search }} | Name: {{ search.first_name }} {{ search.last_name }} | Email: {{ search.email }}
                         </div>
                     {% endfor %}
